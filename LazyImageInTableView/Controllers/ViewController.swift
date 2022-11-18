@@ -11,14 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var tblViewArray:[Movie] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
-        }
-    }
+    var tblViewArray:[String] = ["Black Adam","Lobo","Superman"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +19,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         
-        NetworkingService.shared.fetchData { movies in
-            for item in movies.results {
-                self.tblViewArray.append(Movie(name: item.title, bd: item.backdropPath.tmdbImagePath, pp: item.posterPath.tmdbImagePath))
-            }
-        }
+        
     }
 
 
@@ -41,7 +30,8 @@ extension ViewController:UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = tblViewArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = item.name
+        cell?.textLabel?.text = item
+        
         return cell!
     }
     

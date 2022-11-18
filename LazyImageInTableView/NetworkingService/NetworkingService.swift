@@ -12,8 +12,8 @@ final class NetworkingService {
     private init() {}
     
     private let apiString:String = ""
-    public func fetchData(completion:@escaping(CurrentMovies) -> ()) {
-        guard let url = URL(string: Constants.currentMoviesURLString) else {
+    public func fetchData(urlString:String, completion:@escaping(Data) -> ()) {
+        guard let url = URL(string: urlString) else {
             fatalError("There is no Url")
         }
         let task = URLSession.shared.dataTask(with: url) { data, _ , error in
@@ -23,26 +23,10 @@ final class NetworkingService {
             guard let data = data else {
                 fatalError("No data")
             }
-            DispatchQueue.global(qos: .userInitiated).async {
-                let parser = JSonParser<CurrentMovies>()
-                parser.parseData(data: data) { movies in
-                    completion(movies)
-                }
-            }
+            completion(data)
         }
         task.resume()
     }
 }
 
 
-struct Constants {
-    static let currentMoviesURLString:String = "https://api.themoviedb.org/3/movie/now_playing?api_key=1aff0f2a2e051932796861db6a246d75&language=en-US&page=1"
-    
-}
-
-
-extension String {
-    var tmdbImagePath:String {
-        return "https://image.tmdb.org/t/p/origina" + self
-    }
-}
