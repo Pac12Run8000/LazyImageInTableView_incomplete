@@ -11,7 +11,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello world")
+        NetworkingService.shared.fetchData { data in
+            print("My data:\(data)")
+        }
     }
 
 
