@@ -12,7 +12,7 @@ final class NetworkingService {
     private init() {}
     
     private let apiString:String = ""
-    public func fetchData(completion:@escaping(Data) -> ()) {
+    public func fetchData(completion:@escaping(CurrentMovies) -> ()) {
         guard let url = URL(string: Constants.currentMoviesURLString) else {
             fatalError("There is no Url")
         }
@@ -23,7 +23,12 @@ final class NetworkingService {
             guard let data = data else {
                 fatalError("No data")
             }
-            completion(data)
+            DispatchQueue.global(qos: .userInitiated).async {
+                let parser = JSonParser<CurrentMovies>()
+                parser.parseData(data: data) { movies in
+                    completion(movies)
+                }
+            }
         }
         task.resume()
     }

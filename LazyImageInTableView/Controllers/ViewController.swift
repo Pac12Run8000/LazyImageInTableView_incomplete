@@ -11,8 +11,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkingService.shared.fetchData { data in
-            print("My data:\(data)")
+        NetworkingService.shared.fetchData { movies in
+            for item in movies.results {
+                print("********")
+                print("name:",item.title)
+                print("bd:", item.backdropPath.tmdbImagePath)
+                print("pp:", item.backdropPath.tmdbImagePath)
+                print("********")
+            }
         }
     }
 
