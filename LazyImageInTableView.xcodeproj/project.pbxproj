@@ -56,15 +56,31 @@
 		09FFEDEC2927F320002B0D1B /* LazyImageInTableView */ = {
 			isa = PBXGroup;
 			children = (
+				09FFEE022927F350002B0D1B /* Controllers */,
+				09FFEE012927F33F002B0D1B /* Views */,
 				09FFEDED2927F320002B0D1B /* AppDelegate.swift */,
 				09FFEDEF2927F320002B0D1B /* SceneDelegate.swift */,
-				09FFEDF12927F320002B0D1B /* ViewController.swift */,
-				09FFEDF32927F320002B0D1B /* Main.storyboard */,
 				09FFEDF62927F322002B0D1B /* Assets.xcassets */,
 				09FFEDF82927F322002B0D1B /* LaunchScreen.storyboard */,
 				09FFEDFB2927F322002B0D1B /* Info.plist */,
 			);
 			path = LazyImageInTableView;
+			sourceTree = "<group>";
+		};
+		09FFEE012927F33F002B0D1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09FFEDF32927F320002B0D1B /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		09FFEE022927F350002B0D1B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				09FFEDF12927F320002B0D1B /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
