@@ -15,6 +15,8 @@
 		09FFEDFA2927F322002B0D1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09FFEDF82927F322002B0D1B /* LaunchScreen.storyboard */; };
 		09FFEE082927F5CF002B0D1B /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE072927F5CF002B0D1B /* NetworkingService.swift */; };
 		09FFEE0B29280480002B0D1B /* JSonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE0A29280480002B0D1B /* JSonParser.swift */; };
+		09FFEE0F292846A5002B0D1B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE0E292846A5002B0D1B /* Constants.swift */; };
+		09FFEE112928478E002B0D1B /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE102928478E002B0D1B /* RestaurantList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		09FFEDFB2927F322002B0D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09FFEE072927F5CF002B0D1B /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		09FFEE0A29280480002B0D1B /* JSonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSonParser.swift; sourceTree = "<group>"; };
+		09FFEE0E292846A5002B0D1B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		09FFEE102928478E002B0D1B /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 		09FFEE052927F585002B0D1B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				09FFEE102928478E002B0D1B /* RestaurantList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				09FFEE0A29280480002B0D1B /* JSonParser.swift */,
+				09FFEE0E292846A5002B0D1B /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -185,10 +191,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				09FFEE082927F5CF002B0D1B /* NetworkingService.swift in Sources */,
+				09FFEE112928478E002B0D1B /* RestaurantList.swift in Sources */,
 				09FFEE0B29280480002B0D1B /* JSonParser.swift in Sources */,
 				09FFEDF22927F320002B0D1B /* ViewController.swift in Sources */,
 				09FFEDEE2927F320002B0D1B /* AppDelegate.swift in Sources */,
 				09FFEDF02927F320002B0D1B /* SceneDelegate.swift in Sources */,
+				09FFEE0F292846A5002B0D1B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
