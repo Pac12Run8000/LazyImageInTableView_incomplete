@@ -7,17 +7,13 @@
 
 import UIKit
 
-
-
 class CustomImageView: UIImageView {
-    
     private let imageCache = NSCache<AnyObject, UIImage>()
    
     func loadImage(urlStr:String) {
         DispatchQueue.main.async {
+            self.image = nil
             self.image = UIImage(systemName: "menubar.dock.rectangle.badge.record")
-            
-            
             guard let url = URL(string: urlStr) else {fatalError("No url")}
             
             if let cachedImage = self.imageCache.object(forKey: url as AnyObject) {
@@ -31,13 +27,15 @@ class CustomImageView: UIImageView {
                 guard let image = UIImage(data: data) else {fatalError("No image")}
                 guard let resizedImage = image.resizeImageTo(size: CGSize(width: 80.00, height: 80.00)) else {fatalError("Couldn't resize image")}
                     print("Images loaded from internet")
-                    DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.imageCache.setObject(resizedImage, forKey: url as AnyObject)
                         self.image = resizedImage
-                    }
                 }
+            }
         }
     }
+    
+    
     
 
 
