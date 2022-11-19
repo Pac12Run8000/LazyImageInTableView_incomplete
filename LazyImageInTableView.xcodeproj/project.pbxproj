@@ -17,6 +17,8 @@
 		09FFEE0B29280480002B0D1B /* JSonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE0A29280480002B0D1B /* JSonParser.swift */; };
 		09FFEE0F292846A5002B0D1B /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE0E292846A5002B0D1B /* HelperConstants.swift */; };
 		09FFEE112928478E002B0D1B /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE102928478E002B0D1B /* RestaurantList.swift */; };
+		09FFEE14292858E9002B0D1B /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE13292858E9002B0D1B /* CustomCell.swift */; };
+		09FFEE162928595D002B0D1B /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFEE152928595D002B0D1B /* CustomImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		09FFEE0A29280480002B0D1B /* JSonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSonParser.swift; sourceTree = "<group>"; };
 		09FFEE0E292846A5002B0D1B /* HelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperConstants.swift; sourceTree = "<group>"; };
 		09FFEE102928478E002B0D1B /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
+		09FFEE13292858E9002B0D1B /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		09FFEE152928595D002B0D1B /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		09FFEDEC2927F320002B0D1B /* LazyImageInTableView */ = {
 			isa = PBXGroup;
 			children = (
+				09FFEE12292858C4002B0D1B /* CustomObjects */,
 				09FFEE092928046D002B0D1B /* Helpers */,
 				09FFEE062927F5A4002B0D1B /* NetworkingService */,
 				09FFEE052927F585002B0D1B /* Models */,
@@ -117,6 +122,15 @@
 				09FFEE0E292846A5002B0D1B /* HelperConstants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		09FFEE12292858C4002B0D1B /* CustomObjects */ = {
+			isa = PBXGroup;
+			children = (
+				09FFEE13292858E9002B0D1B /* CustomCell.swift */,
+				09FFEE152928595D002B0D1B /* CustomImageView.swift */,
+			);
+			path = CustomObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,11 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				09FFEE082927F5CF002B0D1B /* NetworkingService.swift in Sources */,
+				09FFEE162928595D002B0D1B /* CustomImageView.swift in Sources */,
 				09FFEE112928478E002B0D1B /* RestaurantList.swift in Sources */,
 				09FFEE0B29280480002B0D1B /* JSonParser.swift in Sources */,
 				09FFEDF22927F320002B0D1B /* ViewController.swift in Sources */,
 				09FFEDEE2927F320002B0D1B /* AppDelegate.swift in Sources */,
 				09FFEDF02927F320002B0D1B /* SceneDelegate.swift in Sources */,
+				09FFEE14292858E9002B0D1B /* CustomCell.swift in Sources */,
 				09FFEE0F292846A5002B0D1B /* HelperConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
