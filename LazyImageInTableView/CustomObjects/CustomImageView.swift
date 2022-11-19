@@ -11,9 +11,27 @@ var imgCache = NSCache<AnyObject, AnyObject>()
 
 class CustomImageView: UIImageView {
     
+    /*
     var task:URLSessionDataTask?
     var spinner = UIActivityIndicatorView(style: .medium)
-
+    */
+   
+    func loadImage(urlStr:String) {
+        
+        DispatchQueue.main.async {
+            self.image = UIImage(systemName: "menucard.fill")
+            guard let url = URL(string: urlStr) else {fatalError("No url")}
+            DispatchQueue.global(qos: .userInteractive).async {
+                guard let data = try? Data(contentsOf: url) else {fatalError("No data")}
+                guard let image = UIImage(data: data) else {fatalError("No image")}
+                    DispatchQueue.main.async {
+                        self.image = image
+                    }
+                }
+        }
+    }
+    
+/*
     func loadImage(urlStr:String) {
         guard let url = URL(string: urlStr) else {return}
         DispatchQueue.main.async {
@@ -44,10 +62,12 @@ class CustomImageView: UIImageView {
             }
             self.task!.resume()
         }
+ 
     }
     
+ */
     
-    
+    /*
     func addSpinner() {
         addSubview(spinner)
         spinner.translatesAutoresizingMaskIntoConstraints = true
@@ -55,5 +75,6 @@ class CustomImageView: UIImageView {
         spinner.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         spinner.startAnimating()
     }
+     */
 
 }

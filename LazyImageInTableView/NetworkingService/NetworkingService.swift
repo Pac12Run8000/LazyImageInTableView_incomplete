@@ -17,9 +17,9 @@ final class NetworkingService {
             let data:Data = HelperConstants.data
             let parser = JSonParser<RestaurantList>()
             parser.parseData(data: data) { list in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     completion(list)
-                }
+//                }
             }
            
         }

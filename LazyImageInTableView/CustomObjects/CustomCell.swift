@@ -24,6 +24,7 @@ class CustomCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         customImageView.layer.masksToBounds = true
         customImageView.layer.cornerRadius = 7
     }
