@@ -12,20 +12,18 @@ final class NetworkingService {
     private init() {}
     
     private let apiString:String = ""
-    public func fetchData(urlString:String, completion:@escaping(Data) -> ()) {
-        guard let url = URL(string: urlString) else {
-            fatalError("There is no Url")
-        }
-        let task = URLSession.shared.dataTask(with: url) { data, _ , error in
-            guard error == nil else {
-                fatalError("There was an error:\(String(describing: error?.localizedDescription))")
+    public func fetchData(completion:@escaping(RestaurantList) -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let data:Data = HelperConstants.data
+            let parser = JSonParser<RestaurantList>()
+            parser.parseData(data: data) { list in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    completion(list)
+                }
             }
-            guard let data = data else {
-                fatalError("No data")
-            }
-            completion(data)
+           
         }
-        task.resume()
+        
     }
 }
 

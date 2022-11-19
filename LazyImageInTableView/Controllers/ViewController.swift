@@ -11,13 +11,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var tblViewArray:[String] = ["Black Adam","Lobo","Superman"]
+    var restaurantList:[Restaurants] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
+        NetworkingService.shared.fetchData { list in
+            self.restaurantList = list
+        }
         
         
     }
@@ -28,15 +37,17 @@ class ViewController: UIViewController {
 extension ViewController:UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = tblViewArray[indexPath.row]
+        let item = restaurantList[indexPath.row].name
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         cell?.textLabel?.text = item
+        
+        
         
         return cell!
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tblViewArray.count
+        return restaurantList.count
     }
     
     
