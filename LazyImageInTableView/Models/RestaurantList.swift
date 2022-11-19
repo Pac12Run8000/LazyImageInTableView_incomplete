@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - WelcomeElement
-struct Restaurants: Codable {
+struct Restaurant: Codable {
     let name, address, price: String
     let imageURLString: String
 
@@ -18,4 +18,4 @@ struct Restaurants: Codable {
     }
 }
 
-typealias RestaurantList = [Restaurants]
+typealias RestaurantList = [Restaurant]
