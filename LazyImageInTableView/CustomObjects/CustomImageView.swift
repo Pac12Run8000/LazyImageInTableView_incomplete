@@ -16,7 +16,7 @@ class CustomImageView: UIImageView {
             self.image = UIImage(systemName: "menubar.dock.rectangle.badge.record")
             guard let url = URL(string: urlStr) else {fatalError("No url")}
             
-            if let cachedImage = self.imageCache.object(forKey: url as AnyObject) {
+            if let cachedImage = self.imageCache.object(forKey: url.absoluteURL as AnyObject) {
                 print("Images loaded from cache")
                 self.image = cachedImage
                 return
@@ -28,7 +28,7 @@ class CustomImageView: UIImageView {
                 guard let resizedImage = image.resizeImageTo(size: CGSize(width: 80.00, height: 80.00)) else {fatalError("Couldn't resize image")}
                     print("Images loaded from internet")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self.imageCache.setObject(resizedImage, forKey: url as AnyObject)
+                    self.imageCache.setObject(resizedImage, forKey: url.absoluteURL as AnyObject)
                         self.image = resizedImage
                 }
             }
