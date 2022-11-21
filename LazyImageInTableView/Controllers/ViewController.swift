@@ -9,24 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
     
-    var restaurantList:[Restaurant] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
         
-        NetworkingService.shared.fetchData { list in
-            self.restaurantList = list
-        }
+        
+        
         
         
     }
@@ -34,24 +25,5 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController:UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = restaurantList[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CustomCell
-        cell?.restaurant = item
-        return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantList.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
-    }
-    
-    
-    
-}
+
 

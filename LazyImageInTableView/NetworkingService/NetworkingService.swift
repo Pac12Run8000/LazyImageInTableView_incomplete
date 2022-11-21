@@ -8,21 +8,7 @@
 import Foundation
 
 final class NetworkingService {
-    public static let shared = NetworkingService()
-    private init() {}
     
-    private let apiString:String = ""
-    public func fetchData(completion:@escaping(RestaurantList) -> ()) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let data:Data = HelperConstants.data
-            let parser = JSonParser<RestaurantList>()
-            parser.parseData(data: data) { list in
-                    completion(list)
-            }
-           
-        }
-        
-    }
 }
 
 
